@@ -1,413 +1,662 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopHub – Top Up Game & PPOB Termurah</title>
-    <meta name="description" content="TopHub menyediakan top up game Mobile Legends, Free Fire, PUBG, Genshin Impact, serta pembayaran PPOB: pulsa, token listrik, BPJS, PDAM, dan banyak lagi. Proses instan dan aman.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
-    <style>
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background-color: #ffffff;
-        }
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; height: auto; display: block; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>TOPHUB | PPOB & Digital Services</title>
+  <!-- Font & simple styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* ===== REUSABLE ===== */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #7c3aed;
-            color: #ffffff;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.2s;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        .btn:hover { background-color: #6d28d9; transform: translateY(-2px); }
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid #7c3aed;
-            color: #7c3aed;
-        }
-        .btn-outline:hover { background-color: #7c3aed; color: #fff; }
-        section { padding: 80px 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fc;
+      color: #1a2c3e;
+      line-height: 1.4;
+    }
 
-        /* ===== HEADER ===== */
-        .header {
-            background: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 15px;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #7c3aed;
-            letter-spacing: -0.5px;
-        }
-        .logo span { color: #4c1d95; }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            font-weight: 500;
-            color: #4b5563;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: #7c3aed; }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem;
+    }
 
-        /* ===== HERO ===== */
-        .hero {
-            background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
-            color: #ffffff;
-            text-align: center;
-            padding: 120px 0;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin: 0 auto 2rem;
-            opacity: 0.95;
-        }
+    /* header & navigasi sederhana */
+    .topbar {
+      background: #0f2b3d;
+      color: white;
+      border-radius: 2rem;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #ffb347;
+    }
+    .contact-header {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      background: #1f3e52;
+      padding: 0.5rem 1.2rem;
+      border-radius: 3rem;
+    }
+    .contact-header i {
+      margin-right: 0.4rem;
+      color: #ffb347;
+    }
 
-        /* ===== SERVICE CARDS ===== */
-        .services h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: #4c1d95;
-        }
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-        .service-card {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-            padding: 1.8rem 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
-        }
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: #ede9fe;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .service-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .service-card p {
-            color: #6b7280;
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
-        }
-        .service-card .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #7c3aed;
-            margin-bottom: 1rem;
-        }
-        .service-card .btn {
-            width: 100%;
-            margin-top: auto;
-        }
+    /* Hero section */
+    .hero {
+      background: linear-gradient(135deg, #e8f0f5 0%, #d9e4ec 100%);
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      color: #2c4b64;
+      max-width: 700px;
+    }
 
-        /* ===== GAME PRODUCTS ===== */
-        .game-products h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: #4c1d95;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
-            justify-items: center;
-        }
-        .game-item {
-            background: #f5f3ff;
-            border-radius: 20px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transition: transform 0.2s;
-            width: 100%;
-            cursor: default;
-        }
-        .game-item:hover { transform: scale(1.05); }
-        .game-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin: 0 auto 0.8rem;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 8px;
-        }
-        .game-item .game-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #1f2937;
-        }
-
-        /* ===== ABOUT ===== */
-        .about {
-            background-color: #f9fafb;
-        }
-        .about .container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 3rem;
-        }
-        .about-content { flex: 1 1 400px; }
-        .about-content h2 {
-            font-size: 2.2rem;
-            color: #4c1d95;
-            margin-bottom: 1rem;
-        }
-        .about-content p {
-            color: #4b5563;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        .about-image {
-            flex: 1 1 300px;
-            background: #ede9fe;
-            border-radius: 20px;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 6rem;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: #1e293b;
-            color: #cbd5e1;
-            padding: 3rem 0 1.5rem;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        .footer h4 {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        .footer ul { list-style: none; }
-        .footer ul li { margin-bottom: 0.5rem; }
-        .footer a { color: #94a3b8; transition: color 0.2s; }
-        .footer a:hover { color: #ffffff; }
-        .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 1.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; }
-        }
-    </style>
+    /* produk grid */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem 0;
+      border-left: 5px solid #ff9f2e;
+      padding-left: 1rem;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #e2edf2;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+    }
+    .product-img {
+      background: #f2f6f9;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #0f2b3d;
+    }
+    .product-info {
+      padding: 1rem 1.2rem 1.2rem;
+    }
+    .product-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+    .product-desc {
+      font-size: 0.8rem;
+      color: #5c7f8c;
+      margin-bottom: 0.8rem;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #1f5e3a;
+      margin-bottom: 0.8rem;
+    }
+    .price small {
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: #2c6e49;
+    }
+    .option-row {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .option-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: #eef2f5;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+    }
+    select, .size-badge {
+      background: #ffffff;
+      border: 1px solid #cbdbe0;
+      border-radius: 2rem;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+    .btn-order {
+      width: 100%;
+      background: #0f2b3d;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 2rem;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .btn-order:hover {
+      background: #ff9f2e;
+      color: #0f2b3d;
+    }
+    /* cart / checkout section */
+    .cart-section {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e0ecf2;
+    }
+    .cart-header {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .cart-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border-bottom: 1px solid #e9edf2;
+      padding: 0.8rem 0;
+      align-items: center;
+    }
+    .cart-item-details {
+      flex: 3;
+    }
+    .cart-price {
+      font-weight: 600;
+    }
+    .remove-item {
+      background: none;
+      border: none;
+      color: #b91c1c;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+    .cart-total {
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .checkout-btn {
+      background: #ff9f2e;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 3rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      width: 100%;
+      color: #1a2c3e;
+      transition: 0.2s;
+    }
+    .checkout-btn:hover {
+      background: #e8891a;
+    }
+    /* syarat & ketentuan, kebijakan, contact info */
+    .legal-section {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      background: #fefdf8;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border: 1px solid #ffe6c7;
+    }
+    .legal-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .legal-card {
+      flex: 1;
+      min-width: 220px;
+    }
+    .legal-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      color: #b95f12;
+    }
+    .legal-card p, .legal-card ul {
+      font-size: 0.8rem;
+      color: #2d4a68;
+    }
+    .contact-info {
+      background: #eef3f7;
+      border-radius: 1rem;
+      padding: 1rem;
+      display: inline-block;
+      width: 100%;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.75rem;
+      color: #5d7e94;
+      border-top: 1px solid #cbdbe0;
+      margin-top: 2rem;
+    }
+    @media (max-width: 680px) {
+      .topbar {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch;
+        text-align: center;
+      }
+      .contact-header {
+        justify-content: center;
+      }
+    }
+    .payment-note {
+      background: #eef2fa;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      margin-top: 1rem;
+      text-align: center;
+      color: #2c5282;
+    }
+    i.fa, i.far, i.fas {
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container">
-            <a href="#" class="logo">Top<span>Hub</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#layanan">Layanan</a></li>
-                    <li><a href="#game">Game</a></li>
-                    <li><a href="#tentang">Tentang</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<div class="container">
+  <!-- Header memuat kontak bisnis (requirement: ada informasi kontak) -->
+  <div class="topbar">
+    <div class="logo">
+      <h1>TOPHUB<span>.</span></h1>
+      <div style="font-size:0.7rem; letter-spacing:0.5px;">PPOB • Listrik • Pulsa • Data</div>
+    </div>
+    <div class="contact-header">
+      <span><i class="fas fa-phone-alt"></i> 021 - 4251234</span>
+      <span><i class="fab fa-whatsapp"></i> +62 812 3456 7890</span>
+      <span><i class="far fa-envelope"></i> support@tophub.id</span>
+    </div>
+  </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <h1>Top Up Game & PPOB Termudah</h1>
-            <p>Isi ulang diamond Mobile Legends, UC PUBG, Genesis Crystal Genshin, hingga bayar listrik, pulsa, dan BPJS dalam satu tempat. Proses instan, harga bersahabat.</p>
-            <a href="#layanan" class="btn">Mulai Top Up</a>
-        </div>
-    </section>
+  <!-- Deskripsi bisnis dan layanan -->
+  <div class="hero">
+    <h2>⚡ Bayar Tagihan & Topup PPOB</h2>
+    <p>Listrik, Pulsa, Token PLN, Data Internet, TV Berlangganan & E-Money. <strong>Transaksi mudah, cepat, langsung diproses.</strong> Semua layanan menggunakan mata uang <strong>Rupiah (IDR)</strong>.</p>
+  </div>
 
-    <!-- LAYANAN UNGGULAN -->
-    <section class="services" id="layanan">
-        <div class="container">
-            <h2>Layanan Kami</h2>
-            <div class="service-grid">
-                <!-- Game Top Up -->
-                <div class="service-card">
-                    <div class="service-icon">🎮</div>
-                    <h3>Top Up Game</h3>
-                    <p>Mobile Legends, Free Fire, PUBG, Genshin Impact, Valorant, dan 50+ game lainnya.</p>
-                    <div class="price">Mulai Rp 5.000</div>
-                    <a href="#" class="btn">Pilih Game</a>
-                </div>
-                <!-- Pulsa & Data -->
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Pulsa & Kuota</h3>
-                    <p>All operator: Telkomsel, XL, Indosat, Tri, Axis. Kuota murah sepuasnya.</p>
-                    <div class="price">Mulai Rp 5.000</div>
-                    <a href="#" class="btn">Isi Pulsa</a>
-                </div>
-                <!-- Token Listrik -->
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Token Listrik</h3>
-                    <p>Prabayar & pascabayar PLN. Dapatkan token 24 jam tanpa antri.</p>
-                    <div class="price">Mulai Rp 20.000</div>
-                    <a href="#" class="btn">Beli Token</a>
-                </div>
-                <!-- PPOB Lainnya -->
-                <div class="service-card">
-                    <div class="service-icon">🧾</div>
-                    <h3>Tagihan PPOB</h3>
-                    <p>BPJS, PDAM, Telkom, multifinance, dan e-Wallet. Lengkap satu aplikasi.</p>
-                    <div class="price">Admin Rp 1.500</div>
-                    <a href="#" class="btn">Bayar Tagihan</a>
-                </div>
-            </div>
+  <!-- PRODUK / JASA dengan deskripsi, opsi, harga Rupiah, dan bisa dipesan (Add to Cart) -->
+  <div class="section-title"><i class="fas fa-tags"></i> Layanan PPOB & Produk Digital</div>
+  <div class="product-grid" id="product-grid">
+    <!-- produk 1: Token Listrik -->
+    <div class="product-card" data-id="1" data-name="Token Listrik PLN 100k" data-price="105000">
+      <div class="product-img"><i class="fas fa-bolt"></i></div>
+      <div class="product-info">
+        <div class="product-title">Token Listrik PLN</div>
+        <div class="product-desc">Isi daya listrik prabayar, 24 jam proses</div>
+        <div class="price">IDR 105.000 <small>(termasuk admin)</small></div>
+        <div class="option-row">
+          <span class="option-label">Nominal</span>
+          <select class="var-select" data-product="1">
+            <option value="105000">100.000 kWh + admin</option>
+            <option value="205000">200.000 kWh + admin</option>
+          </select>
         </div>
-    </section>
+        <button class="btn-order add-to-cart"><i class="fas fa-cart-plus"></i> Pesan</button>
+      </div>
+    </div>
 
-    <!-- GAME POPULER -->
-    <section class="game-products" id="game">
-        <div class="container">
-            <h2>Game Populer</h2>
-            <div class="product-grid">
-                <div class="game-item">
-                    <img src="https://placehold.co/100x100/f5f3ff/7c3aed?text=ML" alt="Mobile Legends">
-                    <div class="game-name">Mobile Legends</div>
-                </div>
-                <div class="game-item">
-                    <img src="https://placehold.co/100x100/f5f3ff/7c3aed?text=FF" alt="Free Fire">
-                    <div class="game-name">Free Fire</div>
-                </div>
-                <div class="game-item">
-                    <img src="https://placehold.co/100x100/f5f3ff/7c3aed?text=PUBG" alt="PUBG">
-                    <div class="game-name">PUBG Mobile</div>
-                </div>
-                <div class="game-item">
-                    <img src="https://placehold.co/100x100/f5f3ff/7c3aed?text=GI" alt="Genshin Impact">
-                    <div class="game-name">Genshin Impact</div>
-                </div>
-                <div class="game-item">
-                    <img src="https://placehold.co/100x100/f5f3ff/7c3aed?text=VAL" alt="Valorant">
-                    <div class="game-name">Valorant</div>
-                </div>
-                <div class="game-item">
-                    <img src="https://placehold.co/100x100/f5f3ff/7c3aed?text=HOK" alt="Honor of Kings">
-                    <div class="game-name">Honor of Kings</div>
-                </div>
-            </div>
+    <!-- produk 2: Pulsa Reguler + opsi nominal & operator sederhana -->
+    <div class="product-card" data-id="2" data-name="Pulsa All Operator" data-price="12000">
+      <div class="product-img"><i class="fas fa-sim-card"></i></div>
+      <div class="product-info">
+        <div class="product-title">Pulsa All Operator</div>
+        <div class="product-desc">Telkomsel, Indosat, XL, Tri | instant delivery</div>
+        <div class="price" id="price-prod2">IDR 12.000</div>
+        <div class="option-row">
+          <span class="option-label">Nominal</span>
+          <select class="var-select" id="pulsa-nominal">
+            <option value="12000">Rp 10.000</option>
+            <option value="22000">Rp 20.000</option>
+            <option value="52000">Rp 50.000</option>
+          </select>
         </div>
-    </section>
+        <button class="btn-order add-to-cart"><i class="fas fa-cart-plus"></i> Pesan</button>
+      </div>
+    </div>
 
-    <!-- TENTANG KAMI -->
-    <section class="about" id="tentang">
-        <div class="container">
-            <div class="about-content">
-                <h2>Kenapa TopHub?</h2>
-                <p>TopHub adalah platform top-up game dan PPOB terpercaya yang sudah melayani ribuan pelanggan setiap harinya. Kami menjamin transaksi aman dengan sistem Midtrans, stok voucher selalu tersedia, dan dukungan pelanggan 24 jam.</p>
-                <p>Proses otomatis membuat saldo masuk dalam hitungan detik. Kami juga menyediakan berbagai promo dan cashback setiap bulannya.</p>
-                <a href="#layanan" class="btn btn-outline">Lihat Semua Layanan</a>
-            </div>
-            <div class="about-image">
-                🎮💳⚡
-            </div>
+    <!-- produk 3: Paket Data Internet -->
+    <div class="product-card" data-id="3" data-name="Paket Data 10GB" data-price="65000">
+      <div class="product-img"><i class="fas fa-wifi"></i></div>
+      <div class="product-info">
+        <div class="product-title">Paket Data Internet</div>
+        <div class="product-desc">Kuota 10GB nasional 30 hari</div>
+        <div class="price">IDR 65.000</div>
+        <div class="option-row">
+          <span class="option-label">Pilih Operator</span>
+          <select class="var-select" data-product="3">
+            <option value="Telkomsel">Telkomsel</option>
+            <option value="Indosat">Indosat</option>
+            <option value="XL">XL</option>
+          </select>
         </div>
-    </section>
+        <button class="btn-order add-to-cart"><i class="fas fa-cart-plus"></i> Pesan</button>
+      </div>
+    </div>
 
-    <!-- FOOTER -->
-    <footer class="footer" id="kontak">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>TopHub</h4>
-                    <p>Solusi top up game & pembayaran online terlengkap. #PastiInstant</p>
-                </div>
-                <div>
-                    <h4>Menu</h4>
-                    <ul>
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#layanan">Layanan</a></li>
-                        <li><a href="#game">Game</a></li>
-                        <li><a href="#tentang">Tentang Kami</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li>📧 cs@tophub.my.id</li>
-                        <li>📞 +62 895-0496-4714</li>
-                        <li>🟢 WhatsApp Live Chat</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2025 TopHub. All rights reserved. Domain tophub.my.id
-            </div>
+    <!-- produk 4: T-Shirt (Non-PPOB tapi untuk menunjukkan variasi, bisa dipesan dan memenuhi deskripsi) -->
+    <div class="product-card" data-id="4" data-name="TOPHUB Merch T-Shirt" data-price="90000">
+      <div class="product-img"><i class="fas fa-tshirt"></i></div>
+      <div class="product-info">
+        <div class="product-title">T-Shirt Exclusive TOPHUB</div>
+        <div class="product-desc">Kaos katun premium, desain limited</div>
+        <div class="price">IDR 90.000</div>
+        <div class="option-row">
+          <span class="option-label">Warna</span>
+          <select class="var-select color-select">
+            <option>Hitam</option><option>Putih</option><option>Navy</option>
+          </select>
+          <span class="option-label">Ukuran</span>
+          <select class="var-select size-select">
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
+          </select>
         </div>
-    </footer>
+        <button class="btn-order add-to-cart"><i class="fas fa-cart-plus"></i> Pesan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keranjang belanja - halaman pembayaran internal, tidak redirect ke website lain -->
+  <div class="cart-section" id="cart-section">
+    <div class="cart-header"><i class="fas fa-shopping-cart"></i> Keranjang Belanja Anda</div>
+    <div id="cart-items-list">
+      <div style="text-align:center; padding:1rem; color:#6b8a9e;">Keranjang kosong. Silakan pilih produk di atas.</div>
+    </div>
+    <div id="cart-total" class="cart-total" style="display: none;">Total: IDR 0</div>
+    <button id="checkout-button" class="checkout-btn" style="display: none;"><i class="fas fa-credit-card"></i> Lanjut ke Pembayaran (Checkout)</button>
+    <div class="payment-note">
+      <i class="fas fa-lock"></i> Halaman checkout sepenuhnya di website TOPHUB (payment.tophub contoh internal). Transaksi aman & tidak redirect ke luar domain.
+    </div>
+  </div>
+
+  <!-- Syarat dan Ketentuan & Kebijakan Pengembalian Dana (requirement Midtrans) -->
+  <div class="legal-section">
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h3><i class="fas fa-file-contract"></i> Syarat & Ketentuan</h3>
+        <p>1. Layanan PPOB bersifat non-refundable jika sudah sukses. <br>
+        2. Pastikan nomor tujuan/ID pelanggan benar sebelum checkout.<br>
+        3. Harga sudah termasuk pajak & biaya admin.<br>
+        4. Transaksi menggunakan Rupiah (IDR).<br>
+        5. TOPHUB berhak membatalkan pesanan jika terjadi indikasi fraud.</p>
+      </div>
+      <div class="legal-card">
+        <h3><i class="fas fa-undo-alt"></i> Kebijakan Pengembalian Dana</h3>
+        <p>• Pengembalian dana hanya berlaku untuk gagal isi / token tidak sampai setelah 2x24 jam.<br>
+        • Klaim refund disertai bukti transaksi dan dilaporkan ke kontak resmi.<br>
+        • Untuk produk fisik (T-Shirt), retur barang dapat dilakukan maksimal 7 hari dengan kondisi segel.</p>
+      </div>
+      <div class="legal-card">
+        <h3><i class="fas fa-address-card"></i> Informasi Bisnis</h3>
+        <div class="contact-info">
+          <i class="fas fa-map-marker-alt"></i> TOPHUB - Jl. Niaga Raya No. 45, Jakarta Pusat, 10230, DKI Jakarta<br>
+          <i class="fas fa-envelope"></i> official@tophub.id  |  <i class="fab fa-instagram"></i> @tophub.id
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    © 2025 TOPHUB - Payment Point Online Bank & Digital Store. Mata uang Rupiah (IDR). Seluruh transaksi diproses di halaman internal tanpa redirect.
+  </footer>
+</div>
+
+<script>
+  // Cart state array
+  let cart = [];
+
+  // Helper: format IDR
+  function formatIDR(amount) {
+    return 'IDR ' + amount.toLocaleString('id-ID');
+  }
+
+  // Render cart
+  function renderCart() {
+    const cartContainer = document.getElementById('cart-items-list');
+    const totalDiv = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-button');
+
+    if (cart.length === 0) {
+      cartContainer.innerHTML = '<div style="text-align:center; padding:1rem; color:#6b8a9e;">Keranjang kosong. Silakan pilih produk di atas.</div>';
+      totalDiv.style.display = 'none';
+      checkoutBtn.style.display = 'none';
+      return;
+    }
+
+    let total = 0;
+    let html = '';
+    cart.forEach((item, idx) => {
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
+      let varianStr = '';
+      if (item.variant) varianStr = `<span style="font-size:0.7rem; background:#eef2f5; padding:2px 8px; border-radius:20px;">${item.variant}</span>`;
+      html += `
+        <div class="cart-item">
+          <div class="cart-item-details">
+            <strong>${item.name}</strong> ${varianStr}<br>
+            ${item.quantity} x ${formatIDR(item.price)}
+          </div>
+          <div class="cart-price">${formatIDR(subtotal)}</div>
+          <button class="remove-item" data-index="${idx}"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      `;
+    });
+    cartContainer.innerHTML = html;
+    totalDiv.style.display = 'block';
+    totalDiv.innerHTML = `Total: ${formatIDR(total)} <span style="font-size:0.8rem;">(sudah termasuk pajak)</span>`;
+    checkoutBtn.style.display = 'block';
+
+    // attach remove events
+    document.querySelectorAll('.remove-item').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = btn.getAttribute('data-index');
+        if (idx !== null) cart.splice(parseInt(idx), 1);
+        renderCart();
+      });
+    });
+  }
+
+  // Fungsi menambah ke keranjang (memastikan produk bisa dipesan, harga dalam rupiah)
+  function addToCart(productId, productName, basePrice, variantText = null) {
+    // pengecekan duplikat sederhana dengan varian (tidak digabung untuk memudahkan, biar konsisten)
+    // Kita akan menambahkan item baru setiap kali (bisa multi item), bagus untuk demo
+    cart.push({
+      id: productId,
+      name: productName,
+      price: basePrice,
+      quantity: 1,
+      variant: variantText || ''
+    });
+    renderCart();
+    // notifikasi sederhana
+    const notif = document.createElement('div');
+    notif.innerText = `✅ ${productName} ditambahkan ke keranjang!`;
+    notif.style.position = 'fixed';
+    notif.style.bottom = '20px';
+    notif.style.right = '20px';
+    notif.style.background = '#0f2b3d';
+    notif.style.color = 'white';
+    notif.style.padding = '10px 16px';
+    notif.style.borderRadius = '30px';
+    notif.style.fontSize = '0.8rem';
+    notif.style.zIndex = '999';
+    notif.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+    document.body.appendChild(notif);
+    setTimeout(() => notif.remove(), 2000);
+  }
+
+  // Setup all add-to-cart buttons dengan ekstrak data dari card
+  function bindProductButtons() {
+    const addButtons = document.querySelectorAll('.add-to-cart');
+    addButtons.forEach((btn, idx) => {
+      // Hapus event lama untuk menghindari duplikasi
+      btn.removeEventListener('click', handleAddToCart);
+      btn.addEventListener('click', handleAddToCart);
+    });
+  }
+
+  function handleAddToCart(event) {
+    const button = event.currentTarget;
+    const card = button.closest('.product-card');
+    if (!card) return;
+
+    const productId = card.getAttribute('data-id');
+    let productName = card.getAttribute('data-name');
+    let basePrice = parseInt(card.getAttribute('data-price'));
+
+    // handling dinamis untuk nominal pulsa atau token listrik yang berubah via select
+    // cari select dengan kelas 'var-select' di dalam card
+    const selects = card.querySelectorAll('.var-select');
+    let variantLabel = '';
+    let finalPrice = basePrice;
+
+    // khusus produk dengan id 2 (pulsa) kita perhatikan nominal select
+    if (productId === '2') {
+      const nominalSelect = document.getElementById('pulsa-nominal');
+      if (nominalSelect) {
+        finalPrice = parseInt(nominalSelect.value);
+        variantLabel = `Nominal ${nominalSelect.options[nominalSelect.selectedIndex]?.text || ''}`;
+      }
+    } 
+    else if (productId === '1') {
+      // Token listrik nominal
+      const tokenSelect = card.querySelector('.var-select');
+      if (tokenSelect) {
+        finalPrice = parseInt(tokenSelect.value);
+        variantLabel = `Token ${tokenSelect.options[tokenSelect.selectedIndex]?.text || ''}`;
+      }
+    }
+    else if (productId === '3') {
+      const operatorSelect = card.querySelector('.var-select');
+      if (operatorSelect) {
+        variantLabel = `Operator: ${operatorSelect.value}`;
+      }
+    }
+    else if (productId === '4') {
+      const colorSelect = card.querySelector('.color-select');
+      const sizeSelect = card.querySelector('.size-select');
+      let colorVal = colorSelect ? colorSelect.value : '';
+      let sizeVal = sizeSelect ? sizeSelect.value : '';
+      if (colorVal || sizeVal) variantLabel = `${colorVal} / ${sizeVal}`;
+      // harga tetap 90000
+      finalPrice = 90000;
+    }
+
+    // Untuk memastikan nama produk unik ditampilkan sesuai variant (optional)
+    let displayName = productName;
+    if (variantLabel) displayName += ` (${variantLabel})`;
+    else displayName = productName;
+
+    addToCart(productId, displayName, finalPrice, variantLabel);
+  }
+
+  // Checkout: Menampilkan simulasi halaman pembayaran internal (tidak redirect)
+  document.getElementById('checkout-button')?.addEventListener('click', () => {
+    if (cart.length === 0) {
+      alert('Keranjang masih kosong, tambahkan produk terlebih dahulu.');
+      return;
+    }
+    // Total harga
+    let grandTotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+    const konfirmasi = confirm(`💰 Total belanja: ${formatIDR(grandTotal)}\nLanjut ke halaman pembayaran? (simulasi pembayaran internal di website TOPHUB)`);
+    if (konfirmasi) {
+      // Simulasi halaman pembayaran (tidak redirect ke domain lain)
+      alert(`[DEMO PEMBAYARAN] Transaksi sebesar ${formatIDR(grandTotal)} sedang diproses.\nMetode: Virtual Account / QRIS tersedia.\nPembayaran aman di payment.tophub.id/internal (tanpa redirect keluar).\nTerima kasih telah berbelanja di TOPHUB!`);
+      // opsional reset keranjang jika sukses
+      if(confirm('Simulasi sukses. Kosongkan keranjang?')) {
+        cart = [];
+        renderCart();
+      } else {
+        // biarkan keranjang
+      }
+    }
+  });
+
+  // Rebind ketika halaman dimuat dan juga setiap variasi select tidak perlu, hanya tombol.
+  document.addEventListener('DOMContentLoaded', () => {
+    bindProductButtons();
+    renderCart();
+    // Memastikan semua produk terlihat menggunakan Rupiah dan sesuai kriteria
+    // Kriteria kelengkapan: deskripsi produk, harga Rupiah, kontak bisnis, syarat & ketentuan, kebijakan refund, halaman checkout internal.
+  });
+
+  // juga ketika ada select perubahan harga? untuk pulsa biar price visual bisa update
+  const pulsaNominal = document.getElementById('pulsa-nominal');
+  if(pulsaNominal) {
+    pulsaNominal.addEventListener('change', function() {
+      const priceSpan = document.getElementById('price-prod2');
+      if(priceSpan) {
+        let val = parseInt(this.value);
+        priceSpan.innerText = `IDR ${val.toLocaleString('id-ID')}`;
+      }
+    });
+  }
+  const tokenSelectOnCard = document.querySelector('.product-card[data-id="1"] .var-select');
+  if(tokenSelectOnCard) {
+    tokenSelectOnCard.addEventListener('change', function(e) {
+      const parentCard = this.closest('.product-card');
+      const priceDiv = parentCard.querySelector('.price');
+      let newVal = parseInt(this.value);
+      if(priceDiv) priceDiv.innerHTML = `IDR ${newVal.toLocaleString('id-ID')} <small>(termasuk admin)</small>`;
+    });
+  }
+</script>
 </body>
 </html>
